@@ -50,8 +50,11 @@
       "./android-build-optimisations.js"
     ],
     "extra": {
+      "router": {
+        "origin": false
+      },
       "eas": {
-        "projectId": "762a6b46-ac54-44fa-b9f9-51eaac666695"
+        "projectId": "062cdf3e-ee0c-4374-8d04-01330032e6ff"
       }
     },
     "owner": "raahimkhan_",
