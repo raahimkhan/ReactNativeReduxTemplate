@@ -35,6 +35,9 @@
       ],
       "@blue-prints/*": [
         "./src/blue-prints/*"
+      ],
+      "@theme/*": [
+        "./src/theme/*"
       ]
     },
     "forceConsistentCasingInFileNames": true,
