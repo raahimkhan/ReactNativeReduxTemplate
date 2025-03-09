@@ -1,0 +1,40 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "typeRoots" : [
+      "node_modules/@types",
+      "./images.d.ts"
+    ],
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@app/*": [
+        "./app/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@store/*": [
+        "./store/*"
+      ]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

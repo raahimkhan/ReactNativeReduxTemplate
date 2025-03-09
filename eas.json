@@ -1,0 +1,39 @@
+{
+    "cli": {
+        "version": ">= 12.6.2",
+        "appVersionSource": "local"
+    },
+    "build": {
+        "development": {
+            "developmentClient": true,
+            "distribution": "internal",
+            "android": {
+                "buildType": "apk"
+            },
+            "ios": {
+                "simulator": true
+            },
+            "env": {
+                "EXPO_PUBLIC_ENVIRONMENT": "production"
+            },
+            "channel": "development"
+        },
+        "production": {
+            "distribution": "store",
+            "android": {
+                "buildType": "app-bundle"
+            },
+            "ios": {
+                "simulator": false
+            },
+            "autoIncrement": false,
+            "env": {
+                "EXPO_PUBLIC_ENVIRONMENT": "production"
+            },
+            "channel": "production"
+        }
+    },
+    "submit": {
+        "production": {}
+    }
+}
