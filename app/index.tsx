@@ -3,7 +3,7 @@ import {
     SafeAreaView,
     StyleSheet,
 } from 'react-native';
-import SomeComponent from '@components/SomeComponent';
+import SomeComponent from '@screens/SomeComponent';
 
 const Root: React.FC = () => {
     return (

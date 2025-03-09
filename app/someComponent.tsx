@@ -1,5 +1,5 @@
 import React from 'react';
-import SomeComponent from '@components/SomeComponent';
+import SomeComponent from '@screens/SomeComponent';
 
 const SomeComponentScreen: React.FC = () => {
 

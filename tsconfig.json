@@ -15,16 +15,16 @@
         "./app/*"
       ],
       "@assets/*": [
-        "./assets/*"
+        "./src/assets/*"
       ],
       "@hooks/*": [
-        "./hooks/*"
+        "./src/hooks/*"
       ],
-      "@components/*": [
-        "./components/*"
+      "@screens/*": [
+        "./src/screens/*"
       ],
       "@store/*": [
-        "./store/*"
+        "./src/store/*"
       ]
     },
     "forceConsistentCasingInFileNames": true,

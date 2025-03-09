@@ -1,5 +1,5 @@
 import React from 'react';
-import Tab2 from '@components/tabs/Tab2';
+import Tab2 from '@screens/tabs/Tab2';
 
 const Tab2Screen: React.FC = () => {
 
