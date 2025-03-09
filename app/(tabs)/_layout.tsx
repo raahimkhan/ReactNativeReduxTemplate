@@ -22,6 +22,7 @@ const TabLayout = () => {
 
     return (
         <Tabs
+            initialRouteName="tab1"
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused }: { focused: boolean }) => {
                     if (route.name === 'index') {
