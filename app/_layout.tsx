@@ -6,7 +6,6 @@ import useLoadFonts from '@hooks/useLoadFonts';
 import { Stack, useSegments } from 'expo-router';
 import { Provider } from 'react-redux';
 import store from '@store/store';
-import * as Updates from 'expo-updates';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -51,26 +50,11 @@ const StackLayout = () => {
         statusBarStyle: 'dark'
     });
 
-    const fetchOverTheAirUpdates = async () => {
-        try {
-            const environment = process.env.EXPO_PUBLIC_ENVIRONMENT;
-            // only fetch updates in production environment
-            if (environment === 'production') {
-                const update = await Updates.checkForUpdateAsync();
-                if (update.isAvailable) {
-                    await Updates.fetchUpdateAsync();
-                    await Updates.reloadAsync();
-                }
-            }
-        }
-        catch (err: any) {}
-    }
-
     // Update SafeAreaView props based on current route
     useEffect(() => {
         const currentRouteName = segments[segments.length - 1];
         setCurrentRoute(currentRouteName);
-        if (currentRouteName === 'index' || currentRouteName === 'splash' || currentRouteName === undefined) {
+        if (currentRouteName === 'index' || currentRouteName === undefined) {
             setSafeAreaProps({
                 safeAreaBG: 'white',
                 statusBarStyle: 'dark',
@@ -86,8 +70,6 @@ const StackLayout = () => {
 
     const onLayoutRootView = useCallback(async () => {
         if (fontsLoaded) {
-            // fetch OTA in production environment only and then hide the splash
-            await fetchOverTheAirUpdates();
             await SplashScreen.hideAsync();
         }
     }, [fontsLoaded]);
@@ -99,8 +81,11 @@ const StackLayout = () => {
     return (
         <>
             {
-                currentRoute === '(tabs)' ? (
-                    <StackHierarchy />
+                currentRoute === '(tabs)' || currentRoute === 'tab1' || currentRoute === 'tab2' ? (
+                    <>
+                        <StatusBar style={safeAreaProps.statusBarStyle} />
+                        <StackHierarchy />
+                    </>
                 ) : (
                     <>
                         <StatusBar style={safeAreaProps.statusBarStyle}/>

@@ -24,7 +24,6 @@ const SomeComponent: React.FC = () => {
 
     const name = useSelector((state: { user: { name: string } }) => state.user.name);
     const age = useSelector((state: { user: { age: number } }) => state.user.age);
-    console.log(name, age);
 
     return (
         <SafeAreaView style={styles.container}>

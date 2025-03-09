@@ -15,8 +15,7 @@
             },
             "env": {
                 "EXPO_PUBLIC_ENVIRONMENT": "production"
-            },
-            "channel": "development"
+            }
         },
         "production": {
             "distribution": "store",
@@ -29,8 +28,7 @@
             "autoIncrement": false,
             "env": {
                 "EXPO_PUBLIC_ENVIRONMENT": "production"
-            },
-            "channel": "production"
+            }
         }
     },
     "submit": {

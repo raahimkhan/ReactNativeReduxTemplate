@@ -3,20 +3,19 @@ import { Tabs } from 'expo-router';
 import { Text, Platform, useWindowDimensions, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { palette } from '@theme/colors';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // create styles based on dimensions
-const createStyles = (width: number, height: number) => StyleSheet.create({
+const createStyles = (width: number, height: number, bottomInset: number) => StyleSheet.create({
 	label: {
 		fontSize: Math.min(width, height) * 0.03,
 		marginBottom: Platform.OS === 'android' ? 8 : 0,
 	},
 	tabBar: {
 		backgroundColor: palette.black,
-		borderTopColor: palette.white,
+		borderTopWidth: 0,
 		height: Platform.OS === 'android' ? 60 : 85,
-		elevation: 0,
-		shadowOpacity: 0,
-		paddingBottom: Platform.OS === 'android' ? 8 : 20,
+		paddingBottom: bottomInset,
 	},
 	icon: {
 		marginTop: Platform.OS === 'android' ? 12 : 8,
@@ -25,7 +24,8 @@ const createStyles = (width: number, height: number) => StyleSheet.create({
 
 const TabLayout = () => {
 	const { width, height } = useWindowDimensions();
-	const styles = createStyles(width, height);
+	const { bottom } = useSafeAreaInsets();
+	const styles = createStyles(width, height, bottom);
 	
 	const screenOptions = {
 		headerShown: false,
@@ -35,7 +35,6 @@ const TabLayout = () => {
 				tab1: 'grid',
 				tab2: 'settings'
 			};
-			
 			return (
 				<Feather
 					name={iconMap[route]}
@@ -50,7 +49,6 @@ const TabLayout = () => {
 				tab1: 'Tab 1',
 				tab2: 'Tab 2'
 			};
-
 			return (
 				<Text
 					style={[

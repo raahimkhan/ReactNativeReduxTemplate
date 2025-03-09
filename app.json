@@ -65,11 +65,7 @@
     "owner": "raahimkhan_",
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/762a6b46-ac54-44fa-b9f9-51eaac666695",
-      "checkAutomatically": "NEVER",
-      "requestHeaders": {
-        "expo-channel-name": "production"
-      }
+      "checkAutomatically": "NEVER"
     }
   }
 }
