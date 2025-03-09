@@ -6,6 +6,13 @@
       "./images.d.ts"
     ],
     "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -25,6 +32,9 @@
       ],
       "@store/*": [
         "./src/store/*"
+      ],
+      "@blue-prints/*": [
+        "./src/blue-prints/*"
       ]
     },
     "forceConsistentCasingInFileNames": true,
