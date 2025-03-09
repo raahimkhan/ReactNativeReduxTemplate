@@ -1,111 +1,87 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Text, Platform } from 'react-native';
-import Entypo from '@expo/vector-icons/Entypo';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { Text, Platform, useWindowDimensions, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { palette } from '@theme/colors';
+
+// create styles based on dimensions
+const createStyles = (width: number, height: number) => StyleSheet.create({
+	label: {
+		fontSize: Math.min(width, height) * 0.03,
+		marginBottom: Platform.OS === 'android' ? 8 : 0,
+	},
+	tabBar: {
+		backgroundColor: palette.black,
+		borderTopColor: palette.white,
+		height: Platform.OS === 'android' ? 60 : 85,
+		elevation: 0,
+		shadowOpacity: 0,
+		paddingBottom: Platform.OS === 'android' ? 8 : 20,
+	},
+	icon: {
+		marginTop: Platform.OS === 'android' ? 12 : 8,
+	}
+});
 
 const TabLayout = () => {
+	const { width, height } = useWindowDimensions();
+	const styles = createStyles(width, height);
+	
+	const screenOptions = {
+		headerShown: false,
+		tabBarIcon: ({ focused, route }: { focused: boolean; route: string }) => {
+			const iconMap: Record<string, keyof typeof Feather.glyphMap> = {
+				index: 'home',
+				tab1: 'grid',
+				tab2: 'settings'
+			};
+			
+			return (
+				<Feather
+					name={iconMap[route]}
+					size={24}
+					color={focused ? palette.primary : 'rgba(45,53,61,0.75)'}
+				/>
+			);
+		},
+		tabBarLabel: ({ focused, route }: { focused: boolean; route: string }) => {
+			const labelMap = {
+				index: 'Home',
+				tab1: 'Tab 1',
+				tab2: 'Tab 2'
+			};
 
-    const options = {
-        headerShown: false
-    }
+			return (
+				<Text
+					style={[
+						styles.label,
+						{ color: focused ? palette.primary : 'rgba(45,53,61,0.75)' }
+					]}
+				>
+					{labelMap[route as keyof typeof labelMap]}
+				</Text>
+			);
+		},
+		tabBarStyle: styles.tabBar,
+		tabBarIconStyle: styles.icon,
+		tabBarActiveTintColor: palette.primary,
+		tabBarInactiveTintColor: 'rgba(45,53,61,0.75)',
+	};
 
-    const getTabBarName = (name: string): string => {
-        if (name === 'tab1') {
-            return 'Tab 1';
-        }
-        else if (name === 'tab2') {
-            return 'Tab 2';
-        }
-        return '';
-    }
-
-    return (
-        <Tabs
-            initialRouteName="tab1"
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused }: { focused: boolean }) => {
-                    if (route.name === 'index') {
-                        return (
-                            <Entypo
-                                name="home"
-                                size={
-                                    Platform.OS === 'android' ? wp(6) : wp(7)
-                                }
-                                color={focused ? '#0079FF' : 'rgba(45,53,61,0.75)'}
-                            />
-                        );
-                    }
-                    else if (route.name === 'tab1') {
-                        return (
-                            <Entypo
-                                name="home"
-                                size={
-                                    Platform.OS === 'android' ? wp(6) : wp(7)
-                                }
-                                color={focused ? '#0079FF' : 'rgba(45,53,61,0.75)'}
-                            />
-                        );
-                    }
-                    else if (route.name === 'tab2') {
-                        return (
-                            <Entypo
-                                name="home"
-                                size={
-                                    Platform.OS === 'android' ? wp(6) : wp(7)
-                                }
-                                color={focused ? '#0079FF' : 'rgba(45,53,61,0.75)'}
-                            />
-                        );
-                    }
-                    return null;
-                },
-                tabBarLabel: ({ focused }: { focused: boolean }) => (
-                    <Text
-                        style={{
-                            color: focused ? '#0079FF' : 'rgba(45,53,61,0.75)',
-                            fontSize: Platform.OS === 'android' ? wp(2.7) : wp(3),
-                            marginTop: hp(-0.5),
-                            marginBottom: Platform.OS === 'android' ? hp(1.3) : undefined
-                        }}
-                    >
-                        {
-                            route.name === 'index' ? (
-                                "Home"
-                            ) : (
-                                getTabBarName(route.name)
-                            )
-                        }
-                    </Text>
-                ),
-                tabBarStyle: {
-                    backgroundColor: 'white',
-                    borderTopColor: 'white',
-                    height: hp(10),
-                    elevation: 0,
-                    shadowOpacity: 0,
-                },
-                tabBarActiveTintColor: '#0079FF',
-                tabBarInactiveTintColor: '#2D353DBF',
-                tabBarIconStyle: {
-                    marginTop: hp(0.5),
-                },
-            })}
-        >
-            <Tabs.Screen
-                name="index"
-                options={options}
-            />
-            <Tabs.Screen
-                name="tab1"
-                options={options}
-            />
-            <Tabs.Screen
-                name="tab2"
-                options={options}
-            />
-        </Tabs>
-    );
-}
+	return (
+		<Tabs
+			initialRouteName="index"
+			screenOptions={({ route }) => ({
+				...screenOptions,
+				tabBarIcon: ({ focused }) => screenOptions.tabBarIcon({ focused, route: route.name }),
+				tabBarLabel: ({ focused }) => screenOptions.tabBarLabel({ focused, route: route.name })
+			})}
+		>
+			<Tabs.Screen name="index" options={{ headerShown: false }} />
+			<Tabs.Screen name="tab1" options={{ headerShown: false }} />
+			<Tabs.Screen name="tab2" options={{ headerShown: false }} />
+		</Tabs>
+	);
+};
 
 export default TabLayout;
