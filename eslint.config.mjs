@@ -11,6 +11,37 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  // for non-screen files: kebab-case
+  {
+    files: ["**/*.{ts,tsx}"],
+    ignores: ["**/screens/**/*"],
+    plugins: {
+      'filenames-simple': filenamesSimple
+    },
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "filenames-simple/naming-convention": ["error", { 
+        "rule": "kebab-case",
+        "excepts": [
+          "^_layout$", 
+          "^\\+not-found$"
+        ]
+      }]
+    }
+  },
+  // for screen files: PascalCase
+  {
+    files: ["**/screens/**/*.{ts,tsx}"],
+    plugins: {
+      'filenames-simple': filenamesSimple
+    },
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "filenames-simple/naming-convention": ["error", { 
+        "rule": "PascalCase"
+      }]
+    }
+  },
   {
     settings: {
       react: {
@@ -23,12 +54,6 @@ export default [
     rules: {
       // disable the rule that forbids require() because local fonts and images need this in React Native
       "@typescript-eslint/no-require-imports": "off",
-      // file names should be kebab-case
-      // except _layout.tsx and +not-found.tsx files
-      "filenames-simple/naming-convention": ["error", { 
-        "rule": "kebab-case",
-        "excepts": ["_layout", "^\\+not-found$"]
-      }],
       // interface and type names should be PascalCase
       "@typescript-eslint/naming-convention": [
         "error",

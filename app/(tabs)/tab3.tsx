@@ -1,5 +1,5 @@
 import React from 'react';
-import Tab3 from "@screens/tabs/tab3";
+import Tab3 from "@screens/tabs/Tab3";
 
 const Tab3Screen = () => {
   return (

@@ -33,7 +33,11 @@ This boilerplate provides a clean and modern starting point for React Native app
 ## Naming Conventions
 - **Component Names**: PascalCase (e.g., `LandingPage`)
 - **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
-- **Files/Directories**: kebab-case (e.g., `user-slice.ts` and `global-store`)
+- **Files**: 
+  - Inside `screens/`: PascalCase to match component names (e.g., `Landing.tsx`, `TabOne.tsx`)
+  - All other files: kebab-case (e.g., `user-slice.ts`)
+  - Special cases: `_layout.tsx` and `+not-found.tsx` for Expo Router
+- **Directories**: kebab-case (e.g., `global-store`)
 - **Functions/Variables**: camelCase (e.g., `updateUserName`)
 
 ## Getting Started
@@ -114,10 +118,14 @@ This boilerplate provides a clean and modern starting point for React Native app
 The project uses ESLint with TypeScript and React Native specific rules to enforce consistent code style:
 
 ### Naming Conventions
-- **Files**: kebab-case (e.g., `user-slice.ts`)
+- **Files**: 
+  - Inside `screens/`: Must be PascalCase (required by EAS build)
+    - Numbers in names must be written out (e.g., `TabOne.tsx` not `Tab1.tsx`)
+  - All other files: Must be kebab-case
   - Exceptions: `_layout.tsx` and `+not-found.tsx` for Expo Router
-- **Directories**: kebab-case (e.g., `global-store`)
-- **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
+- **Directories**: kebab-case
+- **Types/Interfaces**: PascalCase
+- **Variables/Functions**: camelCase (React components use PascalCase)
 
 ### Linting Commands
 ```bash

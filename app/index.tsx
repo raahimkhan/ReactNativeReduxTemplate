@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from "@screens/landing";
+import Landing from "@screens/Landing";
 
 const Index = () => {
 

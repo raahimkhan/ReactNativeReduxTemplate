@@ -60,6 +60,14 @@
     },
     "updates": {
       "checkAutomatically": "NEVER"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b7473e1f-1672-4f9b-ae40-a2a9603d0e17"
+      }
     }
   }
 }
