@@ -1,4 +1,4 @@
-import Tab2 from "@screens/tabs/Tab2";
+import Tab2 from "@screens/tabs/tab2";
 
 const Tab2Screen = () => {
   return (

@@ -1,4 +1,4 @@
-import Landing from "@screens/Landing";
+import Landing from "@screens/landing";
 
 const Index = () => {
 
