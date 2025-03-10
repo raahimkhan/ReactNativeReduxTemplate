@@ -4,7 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import useLoadFonts from '@hooks/useLoadFonts';
 import { Stack } from 'expo-router';
 import { Provider } from 'react-redux';
-import store from '@store/store';
+import store from '@global-store/store';
 
 const RootLayout = () => {
 

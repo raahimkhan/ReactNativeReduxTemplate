@@ -38,6 +38,9 @@
       ],
       "@theme/*": [
         "./src/theme/*"
+      ],
+      "@local-store/*": [
+        "./src/local-store/*"
       ]
     },
     "forceConsistentCasingInFileNames": true,

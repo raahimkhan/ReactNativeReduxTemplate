@@ -1,0 +1,6 @@
+export enum LocalStoreKeys {
+    USER_TOKEN = 'USER_TOKEN',
+    USER_DATA = 'USER_DATA',
+    APP_THEME = 'APP_THEME',
+    ONBOARDING_COMPLETE = 'ONBOARDING_COMPLETE'
+} 
