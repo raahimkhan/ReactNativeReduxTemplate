@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# navigate to root directory from scripts directory
+cd ..
+
 # function to generate release keystore and keystore.properties
 # if not already exists
 function createKeystore() {

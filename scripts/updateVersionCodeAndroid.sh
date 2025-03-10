@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# navigate to root directory from scripts directory
+cd ..
+
 # navigate to app level android directory and check if build.gradle file exists
 cd android/app/
 if [ ! -f "build.gradle" ]; then

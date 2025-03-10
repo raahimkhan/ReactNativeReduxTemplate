@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# navigate to root directory from scripts directory
+cd ..
+
 # function to read plist values
 read_plist_value() {
     local key="$1"

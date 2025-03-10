@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# navigate to root directory from scripts directory
+cd ..
+
 echo ""
 
 echo "Running afterPrebuild automation!"
