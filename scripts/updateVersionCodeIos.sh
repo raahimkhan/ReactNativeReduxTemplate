@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# navigate to root directory from scripts directory
-cd ..
-
 # function to read plist values
 read_plist_value() {
     local key="$1"
@@ -34,7 +31,7 @@ write_plist_value() {
 }
 
 # navigate to ios directory and check if Info.plist file exists
-cd ios/ReactNativeReduxTemplate
+cd ../ios/ReactNativeReduxTemplate
 if [ ! -f "Info.plist" ]; then
     echo "Error: Info.plist file not found"
     exit 1
@@ -89,6 +86,6 @@ echo "Updated CFBundleShortVersionString: $updated_CFBundleShortVersionString"
 
 echo ""
 
-cd .. && cd ..
+cd .. && cd .. && cd scripts
 
 echo "CFBundleVersion and CFBundleShortVersionString updated successfully for iOS!"

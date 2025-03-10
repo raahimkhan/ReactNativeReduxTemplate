@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# navigate to root directory from scripts directory
-cd ..
-
 # navigate to app level android directory and check if build.gradle file exists
-cd android/app/
+cd ../android/app
 if [ ! -f "build.gradle" ]; then
     echo "Error: build.gradle file not found"
     exit 1
@@ -73,6 +70,6 @@ fi
 
 echo ""
 
-cd .. && cd ..
+cd .. && cd .. && cd scripts
 
 echo "versionCode and versionName updated successfully for Android!"

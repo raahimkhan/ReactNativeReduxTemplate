@@ -1,26 +1,23 @@
 #!/bin/bash
 
-# navigate to root directory from scripts directory
-cd ..
-
 echo ""
 
 echo "Running afterPrebuild automation!"
 
-# copy debug.keystore from android/app directory to root if prebuild first time
+# copy debug.keystore from android/app directory to backup folder in root if prebuild first time
 # otherwise copy debug.keystore from root to android/app directory
-if [ -f "debug.keystore" ]; then
-    cp debug.keystore android/app/
+if [ -f "../backup/debug.keystore" ]; then
+    cp ../backup/debug.keystore ../android/app/
 else
-    cp android/app/debug.keystore .
+    cp ../android/app/debug.keystore ../backup/
 fi
 
-# copy release.keystore from root to android/app directory
-cp release.keystore android/app/
+# copy release.keystore from backup folder in root to android/app directory
+cp ../backup/release.keystore ../android/app/
 
 # copy keystore.properties from root to android directory
-if [ -f "keystore.properties" ]; then
-    cp keystore.properties android/
+if [ -f "../backup/keystore.properties" ]; then
+    cp ../backup/keystore.properties ../android/
 else
     echo "keystore.properties does not exist. afterPrebuild automation failed!"
     return 1
@@ -30,10 +27,10 @@ echo "debug.keystore, release.keystore, and keystore.properties copied successfu
 
 echo ""
 
-if [ -f "androidTemp.txt" ]; then
-    version_name=$(sed -n '1p' androidTemp.txt)
-    version_code=$(sed -n '2p' androidTemp.txt)
-    cd android/app/
+if [ -f "../backup/androidTemp.txt" ]; then
+    version_name=$(sed -n '1p' ../backup/androidTemp.txt)
+    version_code=$(sed -n '2p' ../backup/androidTemp.txt)
+    cd ../android/app/
     awk -v new_ver="$version_code" -v new_name="$version_name" '
     {
         if ($1 == "versionCode") {
@@ -44,10 +41,11 @@ if [ -f "androidTemp.txt" ]; then
             print $0
         }
     }' build.gradle > build.gradle.tmp && mv build.gradle.tmp build.gradle
-    cd .. && cd ..
+    cd .. && cd .. # back to root
     echo "Android versionCode and versionName backup restored successfully!"
     echo ""
-    rm androidTemp.txt
+    rm backup/androidTemp.txt
+    cd scripts # go back to scripts directory
 else
     echo "androidTemp.txt does not exist. Skipping replacing versionCode and versionName for Android."
 fi
@@ -67,16 +65,17 @@ write_plist_value() {
         mv "$temp_file" "$file"
     fi
 }
-if [ -f "iosTemp.txt" ]; then
-    CFBundleShortVersionString=$(sed -n '1p' iosTemp.txt)
-    CFBundleVersion=$(sed -n '2p' iosTemp.txt)
-    cd ios/ReactNativeReduxTemplate
+if [ -f "../backup/iosTemp.txt" ]; then
+    CFBundleShortVersionString=$(sed -n '1p' ../backup/iosTemp.txt)
+    CFBundleVersion=$(sed -n '2p' ../backup/iosTemp.txt)
+    cd ../ios/ReactNativeReduxTemplate
     write_plist_value "CFBundleVersion" "$CFBundleVersion" "Info.plist"
     write_plist_value "CFBundleShortVersionString" "$CFBundleShortVersionString" "Info.plist"
-    cd .. && cd ..
+    cd .. && cd .. # back to root
     echo "iOS CFBundleVersion and CFBundleShortVersionString backup restored successfully!"
     echo ""
-    rm iosTemp.txt
+    rm backup/iosTemp.txt
+    cd scripts # go back to scripts directory
 else
     echo "iosTemp.txt does not exist. Skipping replacing CFBundleVersion and CFBundleShortVersionString for iOS."
 fi

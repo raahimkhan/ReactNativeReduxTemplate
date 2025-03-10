@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# navigate to root directory from scripts directory
-cd ..
+# create backup directory if not exists in root directory
+mkdir -p ../backup
 
 # function to generate release keystore and keystore.properties
 # if not already exists
 function createKeystore() {
     # check if release keystore and keystore.properties exists or not
-    if [ -f "release.keystore" -a -f "keystore.properties" ]; then
+    if [ -f "../backup/release.keystore" -a -f "../backup/keystore.properties" ]; then
         echo "release.keystore and keystore.properties exists. Skipping creation!"
         return 0
     else
@@ -33,7 +33,7 @@ function createKeystore() {
     # state or province name
     # two-letter country code
     # confirm credentials
-    keytool -genkeypair -v -keystore "$keystoreName" -alias "$aliasName" -keyalg RSA -keysize 2048 -validity 10000 <<-EOF
+    keytool -genkeypair -v -keystore "../backup/$keystoreName" -alias "$aliasName" -keyalg RSA -keysize 2048 -validity 10000 <<-EOF
 $keystorePassword
 $keystorePassword
 Muhammad Raahim Khan
@@ -46,10 +46,10 @@ yes
 EOF
 
     # create the keystore.properties file
-    echo "KEYSTORE_FILE=$keystoreName" > keystore.properties
-    echo "KEYSTORE_PASSWORD=$keystorePassword" >> keystore.properties
-    echo "KEY_ALIAS=$aliasName" >> keystore.properties
-    echo "KEY_PASSWORD=$keystorePassword" >> keystore.properties
+    echo "KEYSTORE_FILE=$keystoreName" > ../backup/keystore.properties
+    echo "KEYSTORE_PASSWORD=$keystorePassword" >> ../backup/keystore.properties
+    echo "KEY_ALIAS=$aliasName" >> ../backup/keystore.properties
+    echo "KEY_PASSWORD=$keystorePassword" >> ../backup/keystore.properties
 
     echo ""
 
@@ -68,16 +68,17 @@ createKeystore
 echo ""
 
 # take backup of versionCode and versionName for Android
-if [ -f "androidTemp.txt" ]; then
-    rm androidTemp.txt
+if [ -f "../backup/androidTemp.txt" ]; then
+    rm ../backup/androidTemp.txt
 fi
-if [ -d "android/app" ]; then
-    cd android/app/
+if [ -d "../android/app" ]; then
+    cd ../android/app/
     version_code=$(awk '$1 == "versionCode" {print $2}' build.gradle)
     version_name=$(awk -F'"' '$1 ~ /versionName/ {print $2}' build.gradle | tr -d '[:space:]')
-    cd .. && cd ..
-    echo "$version_name" > androidTemp.txt
-    echo -n "$version_code" >> androidTemp.txt
+    cd .. && cd .. # back to root
+    echo "$version_name" > backup/androidTemp.txt
+    echo -n "$version_code" >> backup/androidTemp.txt
+    cd scripts # go back to scripts directory
     echo "versionCode and versionName backup for Android done!"
     echo ""
 else
@@ -95,16 +96,17 @@ read_plist_value() {
         grep -A1 "<key>$key</key>" "$file" | tail -n1 | sed -n 's/.*<string>\(.*\)<\/string>.*/\1/p'
     fi
 }
-if [ -f "iosTemp.txt" ]; then
-    rm iosTemp.txt
+if [ -f "../backup/iosTemp.txt" ]; then
+    rm ../backup/iosTemp.txt
 fi
-if [ -d "ios/ReactNativeReduxTemplate" ]; then
-    cd ios/ReactNativeReduxTemplate
+if [ -d "../ios/ReactNativeReduxTemplate" ]; then
+    cd ../ios/ReactNativeReduxTemplate
     CFBundleVersion=$(read_plist_value "CFBundleVersion" "Info.plist")
     CFBundleShortVersionString=$(read_plist_value "CFBundleShortVersionString" "Info.plist")
-    cd .. && cd ..
-    echo "$CFBundleShortVersionString" > iosTemp.txt
-    echo -n "$CFBundleVersion" >> iosTemp.txt
+    cd .. && cd .. # back to root
+    echo "$CFBundleShortVersionString" > backup/iosTemp.txt
+    echo -n "$CFBundleVersion" >> backup/iosTemp.txt
+    cd scripts # go back to scripts directory
     echo "CFBundleVersion and CFBundleShortVersionString backup for iOS done!"
     echo ""
 else
