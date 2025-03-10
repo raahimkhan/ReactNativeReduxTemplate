@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
@@ -38,7 +39,7 @@ const TabLayout = () => {
         tabBarIcon: ({ focused, size }: { focused: boolean; size: number }) => {
           let iconName: keyof typeof Ionicons.glyphMap;
           // here you can then change icon size based on tab
-          let iconSize: number = size;
+          // let iconSize: number = 15;
           if (route.name === 'tab1') {
             iconName = "home-outline";
           } else if (route.name === 'tab2') {
@@ -46,7 +47,7 @@ const TabLayout = () => {
           } else {
             iconName = "settings-outline";
           }
-          return <Ionicons name={iconName} size={iconSize} color={focused ? '#0079FF' : '#2D353DBF'} />;
+          return <Ionicons name={iconName} size={size} color={focused ? '#0079FF' : '#2D353DBF'} />;
         },
         tabBarLabel: ({ focused }: { focused: boolean }) => (
           <Text style={{ 

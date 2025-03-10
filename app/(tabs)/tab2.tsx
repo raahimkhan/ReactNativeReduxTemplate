@@ -1,3 +1,4 @@
+import React from 'react';
 import Tab2 from "@screens/tabs/tab2";
 
 const Tab2Screen = () => {

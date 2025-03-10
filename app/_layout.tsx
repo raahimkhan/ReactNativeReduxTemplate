@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
-import useLoadFonts from '@hooks/useLoadFonts';
+import useLoadFonts from '@hooks/use-load-fonts';
 import { Stack } from 'expo-router';
 import { Provider } from 'react-redux';
 import store from '@global-store/store';
