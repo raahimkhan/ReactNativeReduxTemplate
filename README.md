@@ -8,6 +8,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Redux Toolkit**: For state management with slices.
 - **Expo SecureStore**: For secure local storage.
 - **TypeScript**: For type safety and better developer experience.
+- **ESLint**: Enforced naming conventions and code style for files, directories, types, and variables.
 - **Theming**: Global theme context for consistent styling.
 - **Modular Structure**: Organized by feature for scalability.
 
@@ -27,6 +28,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **app.json**: Project-specific configurations can be changed here as per requirements.
 - **tsconfig.json**: TypeScript-related configurations.
 - **eas.json**: Configuration for EAS builds.
+- **eslint.config.mjs**: ESLint configuration with naming conventions and code style rules.
 
 ## Naming Conventions
 - **Component Names**: PascalCase (e.g., `LandingPage`)
