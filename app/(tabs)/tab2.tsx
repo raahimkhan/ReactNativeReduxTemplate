@@ -1,11 +1,9 @@
-import { View, Text } from "react-native";
+import Tab2 from "@screens/tabs/Tab2";
 
-const Tab2 = () => {
+const Tab2Screen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Tab2</Text>
-    </View>
+    <Tab2 />
   );
 }
 
-export default Tab2; 
+export default Tab2Screen;
