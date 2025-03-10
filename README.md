@@ -55,6 +55,17 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Add new Redux slices**: Place them in `/src/global-store/slices`.
 - **Add new hooks**: Place them in `/src/hooks`.
 - **Update theme**: Modify `/src/theme/colors.ts` and `/src/theme/theme-context.tsx`.
+- **Add new stack routes**: Modify `/app/_layout.tsx`.
+- **Add new tab routes**: Modify `/app/(tabs)/_layout.tsx`.
+- **Add font and image files**: Place them in `/src/assets`.
+- **Add types and interfaces**: Place them in `/src/blue-prints`.
+- **Add global initial states and slices**: Modify `/src/global-store`.
+- **Configure local storage**: Modify `/src/local-store`.
+- **Add fonts to be loaded**: Modify `/src/hooks/useLoadFonts.ts`.
+- **Add custom hooks**: Place them in `/src/hooks`.
+- **Add new themes or modify existing**: Modify `/src/theme`.
+
+Usage of the theme context has been demonstrated in `/app/(tabs)/_layout.tsx`, which can be used as a reference for implementing the global theme provider.
 
 ## Environment Variables
 - **.env**: Don't forget to add `.env` to `.gitignore`. It's included in the boilerplate for demonstration purposes, but should be ignored in production.
