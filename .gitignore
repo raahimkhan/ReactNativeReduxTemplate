@@ -28,9 +28,6 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
-
 # typescript
 *.tsbuildinfo
 
@@ -39,3 +36,7 @@ yarn-error.*
 
 expo-env.d.ts
 # @end expo-cli
+
+debug.keystore
+release.keystore
+keystore.properties
