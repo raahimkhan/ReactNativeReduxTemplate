@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
-import { userSliceReducer } from '@global-store/slices/userSlice';
+import { userSliceReducer } from '@global-store/slices/user-slice';
 
 const rootReducer = {
     user: userSliceReducer,
