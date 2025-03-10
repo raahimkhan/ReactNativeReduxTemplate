@@ -22,7 +22,7 @@ This boilerplate provides a clean and modern starting point for React Native app
   - **local-store/**: SecureStore implementation.
   - **screens/**: Screen components.
   - **theme/**: Colors and styling.
-- **/scripts**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
+- **/scripts**: Contains automation scripts for linting folder names, prebuild and postbuild processes, such as managing keystores and versioning.
 
 ## Configuration Files
 - **app.json**: Project-specific configurations can be changed here as per requirements.
@@ -37,7 +37,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Functions/Variables**: camelCase (e.g., `updateUserName`)
 
 ## Getting Started
-1. **Clone the repository**
+1. **Clone the repository and navigate to the project directory**
    ```bash
    git clone <repository-url>
    cd react-native-redux-template
@@ -47,10 +47,11 @@ This boilerplate provides a clean and modern starting point for React Native app
    npm install
    ```
 3. **Create a development build**
-   - For Android: `npm run android`
-   - For iOS: `npm run ios`
+   We need to install development build because some of the packages rely on native code. Don't worry you do not have to do anything with the native code if you use EAS. This template handles both the bare and managed workflows accordingly.
+   - Using EAS: Before creating a development build using EAS, make sure to execute `eas init` if you have not already done that. To create a development build using EAS for both Android devices and iOS simulators, execute `eas build --profile development --platform all`. For Android devices only, execute `eas build --profile development --platform android`. For iOS simulators only, execute `eas build --profile development --platform ios`. Once done, download the `.ipk` and `.ipa` files from Expo servers and install them in relevant devices.
+   - Locally: **Note:** To create a development build locally, make sure that you have the development environment for React Native set up and working as per the [official documentation](https://reactnative.dev/docs/0.70/environment-setup?guide=native). To create a development build locally, execute the command `npm run prebuild`. This will generate the `android` and `ios` directories within the root folder and also install the pod files for iOS. It will also generate a folder named `backup` in the root directory. It will have the keystore files and other relevant information. Make sure to keep it safe and not commit those files. Once done, execute the command `npm run android` to build for Android and `npm run ios` to build for iOS. If successful, the build will directly install in the relevant devices.
 
-4. **Run the app**
+5. **Run the app**
    - Once the development build is installed, use `npm run start` and press `a` for Android or `i` for iOS.
 
 ## Customization
@@ -64,6 +65,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Add fonts to be loaded**: Modify `/src/hooks/useLoadFonts.ts`.
 - **Add custom hooks**: Place them in `/src/hooks`.
 - **Add new themes or modify existing**: Modify `/src/theme`.
+- **Add linting specific conventions and rules**: Modify `/eslint.config.mjs`.
 
 **Note:** Usage of the theme context has been demonstrated in `/app/(tabs)/_layout.tsx`, which can be used as a reference for implementing the global theme provider.
 
