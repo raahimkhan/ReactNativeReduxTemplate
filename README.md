@@ -4,7 +4,7 @@
 This boilerplate provides a clean and modern starting point for React Native apps using Expo, Redux Toolkit, and TypeScript. It includes a minimal setup with essential features and best practices. The project uses the latest library and SDK versions for React, React Native, Expo, Expo Router, etc., as of March 10, 2025, and has the new architecture enabled.
 
 ## Features
-- **Expo Router**: For smooth navigation and deep linking.
+- **Expo Router**: For smooth navigation, deep linking, and notifications handling.
 - **Redux Toolkit**: For state management with slices.
 - **Expo SecureStore**: For secure local storage.
 - **TypeScript**: For type safety and better developer experience.
@@ -63,11 +63,8 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Scripts Directory**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
 - **Package.json Scripts**: Includes commands for building, running, and managing the app lifecycle.
 
-## Contributing
-Feel free to submit issues or pull requests for improvements and new features.
-
-## License
-This project is licensed under the MIT License.
-
 ## Cursor Editor
 - This project includes Cursor rules specific to React Native, TypeScript, and mobile app development for users of the Cursor editor. 
+
+## Contributing
+Feel free to submit issues or pull requests for improvements and new features.
