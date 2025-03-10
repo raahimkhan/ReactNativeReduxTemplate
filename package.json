@@ -8,11 +8,13 @@
     "ios": "npx expo run:ios",
     "checkDependencies": "npx expo install --check",
     "doctor": "npx expo-doctor",
-    "prebuild": "cd scripts && chmod +x beforePrebuild.sh && ./beforePrebuild.sh && cd .. && DEBUG=* npx expo prebuild --clean && cd scripts && chmod +x afterPrebuild.sh && ./afterPrebuild.sh && cd ..",
-    "updateAndroidVersionCodeAndName": "cd scripts && chmod +x updateVersionCodeAndroid.sh && ./updateVersionCodeAndroid.sh && cd ..",
-    "updateIosVersionCodeAndName": "cd scripts && chmod +x updateVersionCodeIos.sh && ./updateVersionCodeIos.sh && cd ..",
-    "OverTheAirUpdates": "chmod +x overTheAirUpdates.sh && ./overTheAirUpdates.sh",
-    "rollbackOTA": "eas update:rollback"
+    "prebuild": "cd scripts && chmod +x before-prebuild.sh && ./before-prebuild.sh && cd .. && DEBUG=* npx expo prebuild --clean && cd scripts && chmod +x after-prebuild.sh && ./after-prebuild.sh && cd ..",
+    "updateAndroidVersionCodeAndName": "cd scripts && chmod +x update-versioning-android.sh && ./update-versioning-android.sh && cd ..",
+    "updateIosVersionCodeAndName": "cd scripts && chmod +x update-versioning-ios.sh && ./update-versioning-ios.sh && cd ..",
+    "OverTheAirUpdates": "chmod +x over-the-air-updates.sh && ./over-the-air-updates.sh",
+    "rollbackOTA": "eas update:rollback",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "@expo/config-plugins": "^9.0.16",
@@ -52,10 +54,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@eslint/js": "^9.22.0",
     "@types/react": "~18.3.12",
     "@types/react-redux": "^7.1.34",
     "@types/redux-logger": "^3.0.13",
-    "typescript": "^5.3.3"
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.26.0"
   },
   "private": true
 }
