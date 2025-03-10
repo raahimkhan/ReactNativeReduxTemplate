@@ -11,9 +11,6 @@
     "prebuild": "cd scripts && chmod +x beforePrebuild.sh && ./beforePrebuild.sh && cd .. && DEBUG=* npx expo prebuild --clean && cd scripts && chmod +x afterPrebuild.sh && ./afterPrebuild.sh && cd ..",
     "updateAndroidVersionCodeAndName": "cd scripts && chmod +x updateVersionCodeAndroid.sh && ./updateVersionCodeAndroid.sh && cd ..",
     "updateIosVersionCodeAndName": "cd scripts && chmod +x updateVersionCodeIos.sh && ./updateVersionCodeIos.sh && cd ..",
-    "androidPlayStoreBuildLocal": "chmod +x updateVersionCodeAndroid.sh && ./updateVersionCodeAndroid.sh && cd android && ENVFILE=.env ./gradlew bundleRelease",
-    "EASDevelopmentBuildAndroidAndIos": "eas build --profile development --platform all",
-    "EASProductionBuildAndroidAndIos": "chmod +x updateVersionCodeAndroid.sh && ./updateVersionCodeAndroid.sh && chmod +x updateVersionCodeIos.sh && ./updateVersionCodeIos.sh && eas build --profile production --platform all",
     "OverTheAirUpdates": "chmod +x overTheAirUpdates.sh && ./overTheAirUpdates.sh",
     "rollbackOTA": "eas update:rollback"
   },
