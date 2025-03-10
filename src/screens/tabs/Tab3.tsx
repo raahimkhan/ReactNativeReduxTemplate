@@ -9,7 +9,7 @@ const Tab3: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Tab1</Text>
+            <Text>Tab3</Text>
         </View>
     );
 }
