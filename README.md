@@ -8,7 +8,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **Redux Toolkit**: For state management with slices.
 - **Expo SecureStore**: For secure local storage.
 - **TypeScript**: For type safety and better developer experience.
-- **ESLint**: For specifying naming conventions and code style for files, directories, types, ariables, etc.
+- **ESLint**: For specifying naming conventions and code style for files, directories, types, etc.
 - **Theming**: Global theme context for consistent styling.
 - **Modular Structure**: Organized by feature for scalability.
 
