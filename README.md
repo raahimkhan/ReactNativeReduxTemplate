@@ -29,10 +29,10 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **eas.json**: Configuration for EAS builds.
 
 ## Naming Conventions
-- **Components**: PascalCase for file names (e.g., `LandingPage.tsx`)
+- **Components**: PascalCase for file names and component names (e.g., `LandingPage.tsx` and `LandingPage`)
 - **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
-- **Files/Directories**: kebab-case (e.g., `user-slice.ts`)
-- **Functions/Variables**: camelCase (e.g., `updateUserName`)
+- **Files/Directories (other than component files)**: kebab-case (e.g., `user-slice.ts`)
+- **Functions/Variables (other than component names)**: camelCase (e.g., `updateUserName`)
 
 ## Getting Started
 1. **Clone the repository**
@@ -53,20 +53,17 @@ This boilerplate provides a clean and modern starting point for React Native app
 
 ## Customization
 - **Add new screens**: Place them in `/src/screens`.
-- **Add new Redux slices**: Place them in `/src/global-store/slices`.
-- **Add new hooks**: Place them in `/src/hooks`.
-- **Update theme**: Modify `/src/theme/colors.ts` and `/src/theme/theme-context.tsx`.
 - **Add new stack routes**: Modify `/app/_layout.tsx`.
 - **Add new tab routes**: Modify `/app/(tabs)/_layout.tsx`.
 - **Add font and image files**: Place them in `/src/assets`.
 - **Add types and interfaces**: Place them in `/src/blue-prints`.
-- **Add global initial states and slices**: Modify `/src/global-store`.
+- **Add global initial states and Redux slices**: Modify `/src/global-store`.
 - **Configure local storage**: Modify `/src/local-store`.
 - **Add fonts to be loaded**: Modify `/src/hooks/useLoadFonts.ts`.
 - **Add custom hooks**: Place them in `/src/hooks`.
 - **Add new themes or modify existing**: Modify `/src/theme`.
 
-Usage of the theme context has been demonstrated in `/app/(tabs)/_layout.tsx`, which can be used as a reference for implementing the global theme provider.
+**Note:** Usage of the theme context has been demonstrated in `/app/(tabs)/_layout.tsx`, which can be used as a reference for implementing the global theme provider.
 
 ## Environment Variables
 - **.env**: Don't forget to add `.env` to `.gitignore`. It's included in the boilerplate for demonstration purposes, but should be ignored in production.
