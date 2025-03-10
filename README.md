@@ -29,10 +29,10 @@ This boilerplate provides a clean and modern starting point for React Native app
 - **eas.json**: Configuration for EAS builds.
 
 ## Naming Conventions
-- **Components**: PascalCase for file names and component names (e.g., `LandingPage.tsx` and `LandingPage`)
+- **Component Names**: PascalCase (e.g., `LandingPage`)
 - **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
-- **Files/Directories (other than component files)**: kebab-case (e.g., `user-slice.ts`)
-- **Functions/Variables (other than component names)**: camelCase (e.g., `updateUserName`)
+- **Files/Directories**: kebab-case (e.g., `user-slice.ts` and `global-store`)
+- **Functions/Variables**: camelCase (e.g., `updateUserName`)
 
 ## Getting Started
 1. **Clone the repository**
