@@ -14,7 +14,7 @@
     "OverTheAirUpdates": "chmod +x over-the-air-updates.sh && ./over-the-air-updates.sh",
     "rollbackOTA": "eas update:rollback",
     "lint": "eslint . --ext .ts,.tsx --ignore-pattern .cursor --ignore-pattern .expo --ignore-pattern .vscode --ignore-pattern node_modules --ignore-pattern README.md --ignore-pattern .git && node scripts/check-folders.mjs",
-    "lint:fix": "eslint . --ext .ts,.tsx --ignore-pattern .cursor --ignore-pattern .expo --ignore-pattern .vscode --ignore-pattern node_modules --ignore-pattern README.md --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx --ignore-pattern .cursor --ignore-pattern .expo --ignore-pattern .vscode --ignore-pattern node_modules --ignore-pattern README.md --ignore-pattern .git --fix"
   },
   "dependencies": {
     "@expo/config-plugins": "^9.0.16",
