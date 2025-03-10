@@ -37,6 +37,7 @@ yarn-error.*
 expo-env.d.ts
 # @end expo-cli
 
-debug.keystore
-release.keystore
+backup/
 keystore.properties
+release.keystore
+debug.keystore
