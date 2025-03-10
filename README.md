@@ -67,4 +67,7 @@ This boilerplate provides a clean and modern starting point for React Native app
 Feel free to submit issues or pull requests for improvements and new features.
 
 ## License
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
+
+## Cursor Editor
+- This project includes Cursor rules specific to React Native, TypeScript, and mobile app development for users of the Cursor editor. 
