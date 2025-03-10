@@ -47,11 +47,49 @@ This boilerplate provides a clean and modern starting point for React Native app
    npm install
    ```
 3. **Create a development build**
-   We need to install development build because some of the packages rely on native code. Don't worry you do not have to do anything with the native code if you use EAS. This template handles both the bare and managed workflows accordingly.
-   - Using EAS: Before creating a development build using EAS, make sure to execute `eas init` if you have not already done that. To create a development build using EAS for both Android devices and iOS simulators, execute `eas build --profile development --platform all`. For Android devices only, execute `eas build --profile development --platform android`. For iOS simulators only, execute `eas build --profile development --platform ios`. Once done, download the `.ipk` and `.ipa` files from Expo servers and install them in relevant devices.
-   - Locally: **Note:** To create a development build locally, make sure that you have the development environment for React Native set up and working as per the [official documentation](https://reactnative.dev/docs/0.70/environment-setup?guide=native). To create a development build locally, execute the command `npm run prebuild`. This will generate the `android` and `ios` directories within the root folder and also install the pod files for iOS. It will also generate a folder named `backup` in the root directory. It will have the keystore files and other relevant information. Make sure to keep it safe and not commit those files. Once done, execute the command `npm run android` to build for Android and `npm run ios` to build for iOS. If successful, the build will directly install in the relevant devices.
+   
+   Since this template includes packages with native code, a development build is required. The template supports both EAS and local builds.
 
-5. **Run the app**
+   ### Using EAS (Recommended)
+   1. Initialize EAS if you haven't:
+      ```bash
+      eas init
+      ```
+   2. Create development build:
+      ```bash
+      # For both platforms
+      eas build --profile development --platform all
+      
+      # For Android only
+      eas build --profile development --platform android
+      
+      # For iOS only
+      eas build --profile development --platform ios
+      ```
+   3. Download and install the generated `.apk` (Android) or `.ipa` (iOS) files from Expo servers
+
+   ### Building Locally
+   > **Note:** Requires React Native development environment setup as per the [official documentation](https://reactnative.dev/docs/0.70/environment-setup?guide=native)
+   
+   1. Generate native projects:
+      ```bash
+      npm run prebuild
+      ```
+      This creates:
+      - `android` and `ios` directories
+      - Installs iOS pod files
+      - Creates a `backup` folder with keystore files (keep this safe, do not commit)
+   
+   2. Build for your platform:
+      ```bash
+      # For Android
+      npm run android
+      
+      # For iOS
+      npm run ios
+      ```
+
+4. **Run the app**
    - Once the development build is installed, use `npm run start` and press `a` for Android or `i` for iOS.
 
 ## Customization
