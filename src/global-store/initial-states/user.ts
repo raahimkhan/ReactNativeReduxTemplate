@@ -1,7 +1,4 @@
-export interface User {
-    name: string;
-    age: number;
-}
+import { User } from "@blue-prints/global-store/user";
 
 export const userInitialState: User = {
     name: 'sample',

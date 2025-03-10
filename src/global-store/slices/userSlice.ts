@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { userInitialState } from '@global-store/initialStates/user.initial.state';
-import { User } from '@global-store/initialStates/user.initial.state';
+import { userInitialState } from '@global-store/initial-states/user';
+import { User } from '@blue-prints/global-store/user';
 
-export const UserSlice = createSlice({
+export const userSlice = createSlice({
     name: 'userInitialState',
     initialState: userInitialState,
     reducers: {
@@ -24,6 +24,6 @@ export const UserSlice = createSlice({
 export const { 
     updateEntireUserState,
     updateUserName,
-} = UserSlice.actions;
+} = userSlice.actions;
 
-export const UserSliceReducer = UserSlice.reducer;
+export const userSliceReducer = userSlice.reducer;

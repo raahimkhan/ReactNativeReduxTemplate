@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
-import { UserSliceReducer } from '@global-store/slices/userSlice';
+import { userSliceReducer } from '@global-store/slices/userSlice';
 
 const rootReducer = {
-    user: UserSliceReducer,
+    user: userSliceReducer,
 };
 
 const logger = createLogger();
