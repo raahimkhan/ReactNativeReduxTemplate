@@ -68,6 +68,26 @@ This boilerplate provides a clean and modern starting point for React Native app
 ## Environment Variables
 - **.env**: Don't forget to add `.env` to `.gitignore`. It's included in the boilerplate for demonstration purposes, but should be ignored in production.
 
+## ESLint Configuration
+The project uses ESLint with TypeScript and React Native specific rules to enforce consistent code style:
+
+### Naming Conventions
+- **Files**: kebab-case (e.g., `user-slice.ts`)
+  - Exceptions: `_layout.tsx` and `+not-found.tsx` for Expo Router
+- **Directories**: kebab-case (e.g., `global-store`)
+- **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
+- **Variables/Functions**: camelCase (e.g., `updateUserName`)
+  - React components can use PascalCase (e.g., `UserProfile`)
+
+### Linting Commands
+```bash
+# Run ESLint and directory name checks
+npm run lint
+
+# Run only directory name checks
+npm run lint:folders
+```
+
 ## Scripts
 - **Scripts Directory**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
 - **Package.json Scripts**: Includes commands for building, running, and managing the app lifecycle.
