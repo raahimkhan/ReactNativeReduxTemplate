@@ -1,26 +1,32 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
+    "name": "React Native Redux Template",
+    "slug": "reactnativereduxtemplate",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "reactnativereduxtemplate",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.raahimkhan.reactnativereduxtemplate",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "aps-environment": "development"
+      },
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      },
+      "package": "com.raahimkhan.reactnativereduxtemplate",
+      "versionCode": 1,
+      "softwareKeyboardLayoutMode": "pan"
     },
     "plugins": [
       "expo-router",
@@ -32,10 +38,27 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 26,
+            "targetSdkVersion": 34
+          },
+          "ios": {
+            "deploymentTarget": "16.0"
+          }
+        }
       ]
     ],
+    "owner": "raahimkhan_",
+    "runtimeVersion": "1.0.0",
     "experiments": {
       "typedRoutes": true
+    },
+    "updates": {
+      "checkAutomatically": "NEVER"
     }
   }
 }
