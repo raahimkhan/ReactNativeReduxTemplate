@@ -30,8 +30,8 @@
       "@screens/*": [
         "./src/screens/*"
       ],
-      "@store/*": [
-        "./src/store/*"
+      "@global-store/*": [
+        "./src/global-store/*"
       ],
       "@blue-prints/*": [
         "./src/blue-prints/*"
