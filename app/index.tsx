@@ -1,23 +1,24 @@
-import React from 'react';
-import {
-    SafeAreaView,
-    StyleSheet,
-} from 'react-native';
-import SomeComponent from '@screens/SomeComponent';
+import { Text, View, Button } from "react-native";
+import { useRouter } from "expo-router";
 
-const Root: React.FC = () => {
-    return (
-        <SafeAreaView style={styles.container}>
-            <SomeComponent />
-        </SafeAreaView>
-    );
+const Index = () => {
+  const router = useRouter();
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text>Initial Stack Screen</Text>
+      <Button 
+        title="Go to Tab2" 
+        onPress={() => router.replace('/(tabs)/tab2')}
+      />
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-    },
-});
-
-export default Root;
+export default Index;
