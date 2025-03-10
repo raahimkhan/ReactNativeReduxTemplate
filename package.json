@@ -13,8 +13,8 @@
     "updateIosVersionCodeAndName": "cd scripts && chmod +x update-versioning-ios.sh && ./update-versioning-ios.sh && cd ..",
     "OverTheAirUpdates": "chmod +x over-the-air-updates.sh && ./over-the-air-updates.sh",
     "rollbackOTA": "eas update:rollback",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "lint": "eslint . --ext .ts,.tsx --ignore-pattern .cursor --ignore-pattern .expo --ignore-pattern .vscode --ignore-pattern node_modules --ignore-pattern README.md",
+    "lint:fix": "eslint . --ext .ts,.tsx --ignore-pattern .cursor --ignore-pattern .expo --ignore-pattern .vscode --ignore-pattern node_modules --ignore-pattern README.md --fix"
   },
   "dependencies": {
     "@expo/config-plugins": "^9.0.16",
