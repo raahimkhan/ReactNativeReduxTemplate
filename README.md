@@ -120,12 +120,10 @@ The project uses ESLint with TypeScript and React Native specific rules to enfor
 ### Naming Conventions
 - **Files**: 
   - Inside `screens/`: Must be PascalCase (required by EAS build)
-    - Numbers in names must be written out (e.g., `TabOne.tsx` not `Tab1.tsx`)
   - All other files: Must be kebab-case
   - Exceptions: `_layout.tsx` and `+not-found.tsx` for Expo Router
 - **Directories**: kebab-case
 - **Types/Interfaces**: PascalCase
-- **Variables/Functions**: camelCase (React components use PascalCase)
 
 ### Linting Commands
 ```bash
