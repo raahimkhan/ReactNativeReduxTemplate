@@ -5,6 +5,8 @@ import useLoadFonts from '@hooks/useLoadFonts';
 import { Stack } from 'expo-router';
 import { Provider } from 'react-redux';
 import store from '@global-store/store';
+import { ThemeContext } from '@theme/theme-context';
+import { palette } from '@theme/colors';
 
 const RootLayout = () => {
 
@@ -22,12 +24,14 @@ const RootLayout = () => {
 
   return (
     <Provider store={store}>
-      <View style={styles.container} onLayout={onLayoutRootView}>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
-      </View>
+      <ThemeContext.Provider value={{ palette }}>
+        <View style={styles.container} onLayout={onLayoutRootView}>
+          <Stack>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </View>
+      </ThemeContext.Provider>
     </Provider>
   );
 }

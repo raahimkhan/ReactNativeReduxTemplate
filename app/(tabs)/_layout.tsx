@@ -2,8 +2,11 @@ import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import type { Route } from "@react-navigation/native";
+import { useTheme } from '@theme/theme-context';
 
 const TabLayout = () => {
+
+  const { palette } = useTheme();
 
   const getTabBarName = (name: string): string => {
     if (name === 'tab1') {
@@ -24,7 +27,7 @@ const TabLayout = () => {
       screenOptions={({ route }: { route: Route<string> }) => ({
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: 'white',
+          backgroundColor: palette.white,
           borderTopColor: 'red',
         },
         tabBarItemStyle: {
