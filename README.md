@@ -118,20 +118,18 @@ The project uses ESLint with TypeScript and React Native specific rules to enfor
   - Exceptions: `_layout.tsx` and `+not-found.tsx` for Expo Router
 - **Directories**: kebab-case (e.g., `global-store`)
 - **Types/Interfaces**: PascalCase (e.g., `UserInterface`)
-- **Variables/Functions**: camelCase (e.g., `updateUserName`)
-  - React components can use PascalCase (e.g., `UserProfile`)
 
 ### Linting Commands
 ```bash
 # Run ESLint and directory name checks
 npm run lint
 
-# Run only directory name checks
-npm run lint:folders
+# Fix the linting errors
+npm run lint:fix
 ```
 
 ## Scripts
-- **Scripts Directory**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
+- **Scripts Directory**: Contains automation scripts for linting folder names, prebuild and postbuild processes, such as managing keystores and versioning.
 - **Package.json Scripts**: Includes commands for building, running, and managing the app lifecycle.
 
 ## Cursor Editor
