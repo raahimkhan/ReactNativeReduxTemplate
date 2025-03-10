@@ -50,7 +50,8 @@
             "deploymentTarget": "16.0"
           }
         }
-      ]
+      ],
+      "./android-build-optimisations.js"
     ],
     "owner": "raahimkhan_",
     "runtimeVersion": "1.0.0",
