@@ -1,7 +1,7 @@
 # React Native Redux Template
 
 ## Overview
-This boilerplate provides a clean and modern starting point for React Native apps using Expo, Redux, and TypeScript. It includes a minimal setup with essential features and best practices.
+This boilerplate provides a clean and modern starting point for React Native apps using Expo, Redux Toolkit, and TypeScript. It includes a minimal setup with essential features and best practices. The project uses the latest library and SDK versions for React, React Native, Expo, Expo Router, etc., as of March 10, 2025, and has the new architecture enabled.
 
 ## Features
 - **Expo Router**: For smooth navigation and deep linking.
@@ -21,6 +21,12 @@ This boilerplate provides a clean and modern starting point for React Native app
   - **local-store/**: SecureStore implementation.
   - **screens/**: Screen components.
   - **theme/**: Colors and styling.
+- **/scripts**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
+
+## Configuration Files
+- **app.json**: Project-specific configurations can be changed here as per requirements.
+- **tsconfig.json**: TypeScript-related configurations.
+- **eas.json**: Configuration for EAS builds.
 
 ## Naming Conventions
 - **Components**: PascalCase (e.g., `LandingPage.tsx`)
@@ -37,16 +43,25 @@ This boilerplate provides a clean and modern starting point for React Native app
    ```bash
    npm install
    ```
-3. **Run the app**
-   ```bash
-   npx expo start
-   ```
+3. **Create a development build**
+   - For Android: `npm run android`
+   - For iOS: `npm run ios`
+
+4. **Run the app**
+   - Once the development build is installed, use `npm run start` and press `a` for Android or `i` for iOS.
 
 ## Customization
 - **Add new screens**: Place them in `/src/screens`.
 - **Add new Redux slices**: Place them in `/src/global-store/slices`.
 - **Add new hooks**: Place them in `/src/hooks`.
 - **Update theme**: Modify `/src/theme/colors.ts` and `/src/theme/theme-context.tsx`.
+
+## Environment Variables
+- **.env**: Don't forget to add `.env` to `.gitignore`. It's included in the boilerplate for demonstration purposes, but should be ignored in production.
+
+## Scripts
+- **Scripts Directory**: Contains automation scripts for prebuild and postbuild processes, such as managing keystores and versioning.
+- **Package.json Scripts**: Includes commands for building, running, and managing the app lifecycle.
 
 ## Contributing
 Feel free to submit issues or pull requests for improvements and new features.
