@@ -8,6 +8,8 @@ import store from '@global-store/store';
 import { ThemeContext } from '@theme/theme-context';
 import { palette } from '@theme/colors';
 
+SplashScreen.preventAutoHideAsync();
+
 const RootLayout = () => {
 
   const fontsLoaded = useLoadFonts();
